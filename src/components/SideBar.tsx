@@ -1,26 +1,23 @@
 'use client'
 
 import {
-    VisaAccountTiny,
-    VisaChevronDownTiny,
-    VisaChevronUpTiny,
-    VisaMediaFastForwardTiny,
-    VisaMediaRewindTiny,
-  } from '@visa/nova-icons-react';
-import {
   Button,
-  Divider,
   Link,
   Nav,
-  NavAppName,
   Tab,
-  TabSuffix,
   Tabs,
   Typography,
   Utility,
   UtilityFragment,
+  Divider,
+  TabSuffix,
+  NavAppName,
   VisaLogo,
 } from '@visa/nova-react';
+import {
+  VisaMediaRewindTiny,
+  VisaMediaFastForwardTiny,
+} from '@visa/nova-icons-react';
 import { useState } from 'react';
 import NovaComponents from '../data/NovaComponents';
 
@@ -34,22 +31,9 @@ const novaComponentsArray: { key: string; name: string; codeSnippet: string }[] 
   codeSnippet: value.codeSnippet
 }));
 
-const accountSubItems = [
-  {
-    tabLabel: 'L2 label 1',
-    id: `${id}-account-sub-item-0`,
-    href: './vertical-navigation',
-  },
-  {
-    tabLabel: 'L2 label 2',
-    id: `${id}-account-sub-item-1`,
-    href: './vertical-navigation',
-  },
-];
 
 export const AlternateVerticalNavigation = () => {
   const [navExpanded, setNavExpanded] = useState(true);
-  const [accountTabOpen, setAccountTabOpen] = useState(false);
 
   return (
     <div className="appContainer font-mono uppercase">
@@ -67,9 +51,9 @@ export const AlternateVerticalNavigation = () => {
                 vFlexCol
                 vGap={12}
                 vMarginTop={16}
-                vMarginRight={16}
+                vMarginRight={24}
                 vMarginBottom={30}
-                vMarginLeft={20}
+                vMarginLeft={24}
               >
                 <h2 className='text-3xl'>Components</h2>
               </UtilityFragment>
@@ -78,7 +62,7 @@ export const AlternateVerticalNavigation = () => {
                   <Tabs orientation="vertical">
                     {novaComponentsArray.map(component => (
                       <Tab key={component.key}>
-                        <Button colorScheme="tertiary" element={<span>{component.name}</span>} />
+                        <Button colorScheme="tertiary"  element={<span>{component.name}</span>} />
                       </Tab>
                     ))}
                   </Tabs>
@@ -86,7 +70,22 @@ export const AlternateVerticalNavigation = () => {
               </nav>
             </>
           )}
-          
+          <Utility vFlex vFlexCol vAlignSelf="stretch" vGap={4} vMarginTop="auto">
+            <UtilityFragment vMarginLeft={navExpanded ? 'auto' : 5} vMarginRight={navExpanded ? 8 : 5}>
+              <Button
+                aria-label="Side bar"
+                aria-expanded={!!navExpanded}
+                buttonSize="small"
+                colorScheme="tertiary"
+                iconButton
+                iconTwoColor
+                onClick={() => setNavExpanded(!navExpanded)}
+                subtle
+              >
+                {navExpanded ? <VisaMediaRewindTiny rtl /> : <VisaMediaFastForwardTiny rtl />}
+              </Button>
+            </UtilityFragment>
+          </Utility>
         </Nav>
         <div className="mainContent">
           <Typography>Main Content</Typography>

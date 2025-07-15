@@ -1,9 +1,13 @@
+import { SearchBar } from "@/components/SearchBar";
 import { AlternateVerticalNavigation } from "@/components/SideBar";
 
 export default function Home() {
   return (
-    <div className="border min-h-[50vh] my-12 mx-auto max-w-[1200px] ">
-        <AlternateVerticalNavigation />
+    <div className="my-12 mx-4 md:mx-8 lg:mx-16 xl:mx-24 ">
+        <SearchBar />
+        <div className="shadow-lg">
+          <AlternateVerticalNavigation />
+        </div>
     </div>
   );
 }
