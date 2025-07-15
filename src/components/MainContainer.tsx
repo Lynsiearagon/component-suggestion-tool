@@ -6,7 +6,6 @@ import {
   Nav,
   Tab,
   Tabs,
-  Typography,
   Utility,
   UtilityFragment,
 } from "@visa/nova-react";
@@ -21,23 +20,28 @@ import NovaComponents from "../data/NovaComponents";
 const id = "alternate-vertical-navigation";
 const navRegionAriaLabel = "Alternate vertical navigation";
 
-const novaComponentsArray: {
-  key: string;
-  name: string;
-  codeSnippet: string;
-}[] = Object.entries(NovaComponents).map(([key, value]) => ({
-  key,
-  name: value.name,
-  codeSnippet: value.codeSnippet,
-}));
+const novaComponentsArray = Object.entries(NovaComponents)
+  .filter(([_, value]) => "component" in value && "codeSnippet" in value)
+  .map(([key, value]) => ({
+    key,
+    name: value.name,
+    component: value.component,
+    codeSnippet: value.codeSnippet,
+  }));
 
 export const AlternateVerticalNavigation = () => {
   const [navExpanded, setNavExpanded] = useState(true);
-  const [displayedComponents, setDisplayedComponents] = useState<[]>([]);
+  const [displayedComponents, setDisplayedComponents] = useState<
+    { name: string; component: string; codeSnippet: string }[]
+  >([]);
 
   const displayComponent = (key: string) => {
-    console.log("WE hit this");
-    setDisplayedComponents([NovaComponents[key]]);
+    const comp = NovaComponents[key as keyof typeof NovaComponents];
+    if (comp && "component" in comp && "codeSnippet" in comp) {
+      setDisplayedComponents([comp]);
+    } else {
+      setDisplayedComponents([]);
+    }
   };
 
   return (
@@ -111,12 +115,12 @@ export const AlternateVerticalNavigation = () => {
           </Utility>
         </Nav>
         <div className="mainContent">
-          {displayedComponents.map((component) => {
-            <div>
+          {displayedComponents.map((component) => (
+            <div key={component.name} className="border">
               <h3>{component.name}</h3>
               {component.component.replace(/"/g, "")}
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
