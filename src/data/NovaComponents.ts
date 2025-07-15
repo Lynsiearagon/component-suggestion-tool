@@ -1,7 +1,12 @@
+import {CollapsedAccordion} from '@/components/CollapseAcccordion'; 
+import {DefaultAnchorLinkMenu} from '@/components/DefaultAnchorLinkMenu'; 
+import {SmallImageAvatar} from '@/components/SmallImageAvatar'; 
+
+
 const NovaComponents = {
   accordion: {
     name: "Accordion",
-    component: "<CollapsedAccordion />",
+    component: CollapsedAccordion,
     codeSnippet: `import { Accordion, AccordionHeading, AccordionPanel, AccordionToggleIcon, Typography } from '@visa/nova-react';
 
 export const CollapsedAccordion = () => {
@@ -20,7 +25,7 @@ export const CollapsedAccordion = () => {
   },
   "anchor link menu": {
     name: "Anchor Link Menu",
-    component: "<DefaultAnchorLinkMenu />",
+    component: DefaultAnchorLinkMenu,
     codeSnippet: `import { AnchorLinkMenu } from '@visa/nova-react';
 
 export const DefaultAnchorLinkMenu = () => {
@@ -65,14 +70,15 @@ export const DefaultAnchorLinkMenu = () => {
   },
   avatar: {
     name: "Avatar",
+    component: SmallImageAvatar,
     codeSnippet: `import { Avatar } from '@visa/nova-react';
 
 /// This is the base url for where your site is deployed. 'import.meta.env.BASE_URL' is the environment variable used to import the base url for Vite. Change this import to match your build tool's base url.
 const BASE_URL = import.meta.env.BASE_URL;
-const user = 'Alex Miller';
+const user = 'Maggie Aragon';
 
 export const SmallImageAvatar = () => {
-  return <Avatar alt={user} small tag="img" src={BASE_URL + '/alex-miller-stock.png'} />;
+  return <Avatar alt={user} small tag="img" src={'/images/MaggieInFlowers.JPG'} />;
 };`,
   },
   badge: {
@@ -499,13 +505,13 @@ export const DefaultNavigationDrawer = () => {
                 <Button
                   aria-expanded={accountTabOpen}
                   aria-controls={'\${id}-account-sub-menu'}
-                  aria-label="Alex Miller"
+                  aria-label="Lynsie Aragon"
                   buttonSize="large"
                   colorScheme="tertiary"
                   onClick={() => setAccountTabOpen(!accountTabOpen)}
                 >
                   <VisaAccountTiny />
-                  Alex Miller
+                  Lynsie Aragon
                   <TabSuffix element={accountTabOpen ? <VisaChevronUpTiny /> : <VisaChevronDownTiny />} />
                 </Button>
                 <UtilityFragment vHide={!accountTabOpen}>

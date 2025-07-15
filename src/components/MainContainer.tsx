@@ -13,41 +13,59 @@ import {
   VisaMediaRewindTiny,
   VisaMediaFastForwardTiny,
 } from "@visa/nova-icons-react";
-import { useState } from "react";
+import { Component, useState } from "react";
 import NovaComponents from "../data/NovaComponents";
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
 const id = "alternate-vertical-navigation";
 const navRegionAriaLabel = "Alternate vertical navigation";
 
-const novaComponentsArray = Object.entries(NovaComponents)
-  .filter(([_, value]) => "component" in value && "codeSnippet" in value)
-  .map(([key, value]) => ({
-    key,
-    name: value.name,
-    component: value.component,
-    codeSnippet: value.codeSnippet,
-  }));
+const novaComponentsArray: {
+  key: string;
+  name: string;
+  component: string;
+  codeSnippet: string;
+}[] = Object.entries(NovaComponents).map(([key, value]) => ({
+  key,
+  name: value.name,
+  component: value.component,
+  codeSnippet: value.codeSnippet,
+}));
 
 export const AlternateVerticalNavigation = () => {
   const [navExpanded, setNavExpanded] = useState(true);
   const [displayedComponents, setDisplayedComponents] = useState<
     { name: string; component: string; codeSnippet: string }[]
   >([]);
+  const [componentCodeToShow, setComponentCodeToShow] = useState("")
 
   const displayComponent = (key: string) => {
-    const comp = NovaComponents[key as keyof typeof NovaComponents];
-    if (comp && "component" in comp && "codeSnippet" in comp) {
-      setDisplayedComponents([comp]);
-    } else {
-      setDisplayedComponents([]);
+    console.log("WE hit this");
+    setDisplayedComponents([NovaComponents[key as keyof typeof NovaComponents]]);
+  };
+
+  const viewCode = (componentName:string) => {
+    setComponentCodeToShow(componentName)
+  }
+
+  const copyCode = async (codeSnippet:string) => {
+    try {
+      await navigator.clipboard.writeText(codeSnippet);
+      console.log("Copied!")
+    } catch (err) {
+      console.error("Failed to copy", err);
     }
   };
+
+  const clearResults = () => {
+    setComponentCodeToShow("");
+    setDisplayedComponents(novaComponentsArray);
+  }
 
   return (
     <div className="appContainer font-mono uppercase">
       <div id="layout" className="layoutContainer">
-        <Nav id={id} alternate orientation="vertical" tag="header">
+        <Nav id={id} alternate orientation="vertical" tag="header" className="h-screen overflow-auto">
           {navExpanded && (
             <Link alternate skipLink href="#content">
               Skip to content
@@ -74,6 +92,7 @@ export const AlternateVerticalNavigation = () => {
                         <Button
                           id={component.key}
                           colorScheme="tertiary"
+                          className="hover:text-pink-500"
                           element={<span>{component.name}</span>}
                           onClick={() => displayComponent(component.key)}
                         />
@@ -115,10 +134,30 @@ export const AlternateVerticalNavigation = () => {
           </Utility>
         </Nav>
         <div className="mainContent">
+          <div className="flex flex-row justify-between items-center pt-4 pb-12 px-1">
+            <h2 className="text-3xl">Results {displayedComponents.length}</h2>
+            <button type="button" className="hover:text-pink-500 hover:underline cursor-pointer" onClick={clearResults}>Clear Results</button>
+          </div>
           {displayedComponents.map((component) => (
-            <div key={component.name} className="border">
-              <h3>{component.name}</h3>
-              {component.component.replace(/"/g, "")}
+            <div key={component.name} className="border p-8 bg-white rounded-md shadow-md border border-gray-400 flex flex-col gap-6">
+              <div>
+                <h3 className="pb-4 text-xl">{component.name}</h3>
+                {<component.component />}
+              </div>
+
+              <div className="flex flex-row w-full justify-between">
+                <div className="flex flex-row gap-2">
+                  <Button onClick={() => viewCode(component.name)} className={component.name === componentCodeToShow ? "hidden" : "block hover:bg-pink-500"}>View Code</Button>
+                  <Button onClick={() => setComponentCodeToShow("")} className={component.name === componentCodeToShow ? "block hover:bg-pink-500" : "hidden"}>Hide Code</Button>
+                </div>
+                {component.name === componentCodeToShow && <Button onClick={() => copyCode(component.codeSnippet)} className=" hover:bg-pink-500">Copy</Button>}
+              </div>
+
+              {component.name === componentCodeToShow && <div className="bg-gray-800  text-white p-8 rounded-lg overflow-auto">
+                <pre className="w-100 max-h-100">
+                  <code className="">{component.codeSnippet}</code>
+                </pre>
+              </div>}
             </div>
           ))}
         </div>
