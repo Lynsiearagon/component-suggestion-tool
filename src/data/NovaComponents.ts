@@ -1,7 +1,7 @@
 const NovaComponents = {
-  "accordion": {
+  accordion: {
     name: "Accordion",
-    component: '<CollapsedAccordion />',
+    component: "<CollapsedAccordion />",
     codeSnippet: `import { Accordion, AccordionHeading, AccordionPanel, AccordionToggleIcon, Typography } from '@visa/nova-react';
 
 export const CollapsedAccordion = () => {
@@ -16,11 +16,11 @@ export const CollapsedAccordion = () => {
       </AccordionPanel>
     </Accordion>
   );
-};`
+};`,
   },
   "anchor link menu": {
     name: "Anchor Link Menu",
-    component: '<DefaultAnchorLinkMenu />',
+    component: "<DefaultAnchorLinkMenu />",
     codeSnippet: `import { AnchorLinkMenu } from '@visa/nova-react';
 
 export const DefaultAnchorLinkMenu = () => {
@@ -61,9 +61,9 @@ export const DefaultAnchorLinkMenu = () => {
       </section>
     </AnchorLinkMenu>
   );
-};`
+};`,
   },
-  "avatar": {
+  avatar: {
     name: "Avatar",
     codeSnippet: `import { Avatar } from '@visa/nova-react';
 
@@ -73,11 +73,11 @@ const user = 'Alex Miller';
 
 export const SmallImageAvatar = () => {
   return <Avatar alt={user} small tag="img" src={BASE_URL + '/alex-miller-stock.png'} />;
-};`
+};`,
   },
-  "badge": {
+  badge: {
     name: "Badge",
-    component: '<SubtleBadgeDefault />',
+    component: "<SubtleBadgeDefault />",
     codeSnippet: `import { VisaHistoryTiny } from '@visa/nova-icons-react';
 import { Badge } from '@visa/nova-react';
 
@@ -87,20 +87,20 @@ export const SubtleBadgeDefault = () => {
         <VisaHistoryTiny aria-label="history" /> Label
       </Badge>
   );
-};`
+};`,
   },
-  "banner": {
+  banner: {
     name: "Banner",
-    component: '<EmptyInformationBanner />',
+    component: "<EmptyInformationBanner />",
     codeSnippet: `import { Banner } from '@visa/nova-react';
 
 export const EmptyInformationBanner = () => {
   return <Banner></Banner>;
-};`
+};`,
   },
-  "breadcrumbs": {
+  breadcrumbs: {
     name: "Breadcrumbs",
-    component: '<DefaultBreadcrumbs />',
+    component: "<DefaultBreadcrumbs />",
     codeSnippet: `import { Breadcrumbs, Link } from '@visa/nova-react';
 
 export const DefaultBreadcrumbs = () => {
@@ -122,20 +122,20 @@ export const DefaultBreadcrumbs = () => {
       </ol>
     </Breadcrumbs>
   );
-};`
+};`,
   },
-  "button": {
+  button: {
     name: "Button",
-    component: '<DefaultButton />',
+    component: "<DefaultButton />",
     codeSnippet: `import { Button } from '@visa/nova-react';
 
 export const DefaultButton = () => {
   return <Button>Primary action</Button>;
-};`
+};`,
   },
-    "checkbox": {
+  checkbox: {
     name: "Checkbox",
-    component: '<DefaultCheckbox />',
+    component: "<DefaultCheckbox />",
     codeSnippet: `import { Checkbox, Label, Utility } from '@visa/nova-react';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
@@ -148,11 +148,11 @@ export const DefaultCheckbox = () => {
       <Label htmlFor={id}>Label</Label>
     </Utility>
   );
-};`
+};`,
   },
-  "chip": {
+  chip: {
     name: "Selection Chip",
-    component: '<DefaultSelectionChip />',
+    component: "<DefaultSelectionChip />",
     codeSnippet: `import { Checkbox, Chip } from '@visa/nova-react';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
@@ -165,11 +165,11 @@ export const DefaultSelectionChip = () => {
       <Checkbox id={id} />
     </Chip>
   );
-};`
+};`,
   },
   "content card": {
     name: "Content Card",
-    component: '<DefaultContentCard />',
+    component: "<DefaultContentCard />",
     codeSnippet: `import { VisaChevronRightTiny } from '@visa/nova-icons-react';
 import {
   Button,
@@ -200,20 +200,20 @@ export const DefaultContentCard = () => {
       </Utility>
     </ContentCard>
   );
-};`
-},
-  "divider": {
+};`,
+  },
+  divider: {
     name: "Divider",
-    component: '<DefaultDivider />',
+    component: "<DefaultDivider />",
     codeSnippet: `import { Divider } from '@visa/nova-react';
 
 export const DefaultDivider = () => {
   return <Divider />;
-};`
+};`,
   },
-  "dropdown": {
+  dropdown: {
     name: "Dropdown menu",
-    component: '<DefaultDropdownMenu />',
+    component: "<DefaultDropdownMenu />",
     codeSnippet: `import { useClick, useFloating, useInteractions } from '@floating-ui/react';
 import { VisaChevronDownTiny, VisaChevronUpTiny } from '@visa/nova-icons-react';
 import { useState } from 'react';
@@ -320,11 +320,11 @@ export const DefaultDropdownMenu = () => {
       )}
     </div>
   );
-};`
+};`,
   },
-  "input": {
+  input: {
     name: "Input",
-    component: '<DefaultInput />',
+    component: "<DefaultInput />",
     codeSnippet: `import { Input, InputContainer, Label, Utility } from '@visa/nova-react';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
@@ -339,20 +339,20 @@ export const DefaultInput = () => {
       </InputContainer>
     </Utility>
   );
-};`
+};`,
   },
-  "link": {
+  link: {
     name: "Link",
-    component: '<DefaultLink />',
+    component: "<DefaultLink />",
     codeSnippet: `import { Link } from '@visa/nova-react';
 
 export const DefaultLink = () => {
   return <Link href="./link">Destination label</Link>;
-};`
+};`,
   },
-  "Navigation Drawer": {
+  "navigation drawer": {
     name: "Navigation Drawer",
-    component: '<DefaultNavigationDrawer />',
+    component: "<DefaultNavigationDrawer />",
     codeSnippet: `import { VisaAccountTiny, VisaChevronDownTiny, VisaChevronUpTiny, VisaCloseTiny } from '@visa/nova-icons-react';
 import {
   Button,
@@ -527,11 +527,11 @@ export const DefaultNavigationDrawer = () => {
       </UtilityFragment>
     </>
   );
-};`
+};`,
   },
-  "pagination": {
+  pagination: {
     name: "Pagination",
-    component: '<OneDigitPagination />',
+    component: "<OneDigitPagination />",
     codeSnippet: `import {
   VisaArrowEndTiny,
   VisaArrowStartTiny,
@@ -611,11 +611,11 @@ export const OneDigitPagination = () => {
       </Pagination>
     </nav>
   );
-};`
+};`,
   },
-  "radio": {
+  radio: {
     name: "Radio",
-    component: '<DefaultRadio />',
+    component: "<DefaultRadio />",
     codeSnippet: `import { Label, Radio, Utility } from '@visa/nova-react';
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
@@ -628,11 +628,11 @@ export const DefaultRadio = () => {
       <Label htmlFor={id}>Label</Label>
     </Utility>
   );
-};`
+};`,
   },
-  "select": {
+  select: {
     name: "Select",
-    component: '<DefaultSelect />',
+    component: "<DefaultSelect />",
     codeSnippet: `import { VisaChevronDownTiny } from '@visa/nova-icons-react';
 import { InputContainer, InputControl, Label, Select, Utility } from '@visa/nova-react';
 
@@ -660,9 +660,9 @@ export const DefaultSelect = () => {
       </InputContainer>
     </Utility>
   );
-};`
+};`,
   },
-  "switch": {
+  switch: {
     name: "Switch",
     component: "<DefaultSwitch />",
     codeSnippet: `import { Switch, SwitchLabel, Utility } from '@visa/nova-react';
@@ -676,9 +676,9 @@ export const DefaultSwitch = () => {
       <Switch id={'\${id}-switch'} name="default-switch" />
     </Utility>
   );
-};`
+};`,
   },
-  "tab": {
+  tab: {
     name: "Tab",
     component: "<DefaultVerticalTabs />",
     codeSnippet: `import { Button, Surface, Tab, Tabs, Utility, UtilityFragment, useTabs } from '@visa/nova-react';
@@ -748,9 +748,9 @@ export const DefaultVerticalTabs = () => {
       </Utility>
     </Utility>
   );
-};`
+};`,
   },
-  "toggle": {
+  toggle: {
     name: "Toggle",
     component: "<DefaultToggles />",
     codeSnippet: `import { Toggle, ToggleContainer, UtilityFragment } from '@visa/nova-react';
@@ -787,8 +787,8 @@ export const DefaultToggles = () => {
       ))}
     </ToggleContainer>
   );
-};`
-  }
+};`,
+  },
 };
 
 export default NovaComponents;
