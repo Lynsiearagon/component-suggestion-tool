@@ -2,6 +2,7 @@ import { CollapsedAccordion } from "@/components/CollapseAcccordion";
 import { DefaultAnchorLinkMenu } from "@/components/DefaultAnchorLinkMenu";
 import { SmallImageAvatar } from "@/components/SmallImageAvatar";
 import { SubtleBadgeDefault } from "@/components/SubtleBadgeDefault";
+import { DefaultLink } from "@/components/DefaultLink";
 
 const NovaComponents = {
   accordion: {
@@ -347,15 +348,15 @@ export const SmallImageAvatar = () => {
   //   );
   // };`,
   //   },
-  //   link: {
-  //     name: "Link",
-  //     component: "<DefaultLink />",
-  //     codeSnippet: `import { Link } from '@visa/nova-react';
+  link: {
+    name: "Link",
+    component: DefaultLink,
+    codeSnippet: `import { Link } from '@visa/nova-react';
 
-  // export const DefaultLink = () => {
-  //   return <Link href="./link">Destination label</Link>;
-  // };`,
-  //   },
+  export const DefaultLink = () => {
+    return <Link href="./link">Destination label</Link>;
+  };`,
+  },
   //   "navigation drawer": {
   //     name: "Navigation Drawer",
   //     component: "<DefaultNavigationDrawer />",
