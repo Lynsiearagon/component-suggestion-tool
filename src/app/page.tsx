@@ -3,11 +3,13 @@ import { SearchBar } from "@/components/SearchBar";
 import { AlternateVerticalNavigation } from "@/components/MainContainer";
 import NovaComponents from "../data/NovaComponents";
 import { useState } from "react";
+import type React from "react";
+
 
 const novaComponentsArray: {
   key: string;
   name: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<unknown>;
   codeSnippet: string;
 }[] = Object.entries(NovaComponents).map(([key, value]) => ({
   key,
@@ -21,7 +23,7 @@ export default function Home() {
     useState<
       {
         name: string;
-        component: React.ComponentType<any>;
+        component: React.ComponentType<unknown>;
         codeSnippet: string;
       }[]
     >(novaComponentsArray);

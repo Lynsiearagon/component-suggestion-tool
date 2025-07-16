@@ -2,10 +2,11 @@ import NovaComponents from "@/data/NovaComponents";
 import { VisaSearchLow } from "@visa/nova-icons-react";
 import { Button } from "@visa/nova-react";
 import { useState } from "react";
+import type React from "react";
 
 type DisplayedComponent = {
   name: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<unknown>;
   codeSnippet: string;
 };
 
@@ -13,7 +14,7 @@ interface SearchBarProps {
   setDisplayedComponents: React.Dispatch<
     React.SetStateAction<DisplayedComponent[]>
   >;
-  novaComponentsArray: [];
+  novaComponentsArray: (DisplayedComponent & { key: string })[];
 }
 
 export const SearchBar = ({

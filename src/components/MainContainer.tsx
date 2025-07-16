@@ -1,4 +1,5 @@
 "use client";
+import type React from "react";
 
 import {
   Button,
@@ -22,7 +23,7 @@ const navRegionAriaLabel = "Alternate vertical navigation";
 
 type DisplayedComponent = {
   name: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<unknown>;
   codeSnippet: string;
 };
 
