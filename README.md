@@ -3,12 +3,12 @@
 ## ABOUT
 
 - Allows users to search for and use Visa components using a search bar or a menu.
-- I used NextJs - it is a framework for React and provides a nice developer experience.
-- I used Tailwind to style the app - this provides a very fast and easy way to style components and create responsive designs.
+- Built using NextJs - it is a framework for React and provides a nice developer experience.
+- Styled using Tailwind - this provides a very fast and easy way to style components and create responsive designs.
 
 ## NOTES:
 
-- TOTAL TIME: ~ 7 HOURS
+- TOTAL TIME: ~ 7.5 HOURS
 
 - Research and understanding the design.visa.com site took about 1 hour.
 
@@ -30,21 +30,25 @@
 
 - Structure data:
 
-  - I created a NovaComponents object; I used the help of Cursor to do this. I gave cursor the visa documentation and the object structure that I wanted. Cursor mostly completed the object structure that I needed, having a "name", "component", and "codeSnippet" attributes, but it did not copy the codeSnippet correctly. After trying to clarity and write better queries for Cursor to understand the correct code snippets, I had to go through and quality check/update the object myself (time consuming).
+  - I created a NovaComponents object; I used the help of Cursor to do this. I gave cursor the Visa documentation and the object structure that I wanted. Cursor mostly completed the object structure that I needed, having a "name", "component", and "codeSnippet" attribute, and using the lower-cased version of the componenet name as the key, but it did not copy the codeSnippet correctly. After trying to clarify and write better queries for Cursor to understand the correct code snippets, I eventually had to go through and quality check/update the object myself (time consuming). Most of the base components are in the object, but they are not all being displayed right now.
 
 - Create basic design and color scheme:
 
-  - I told cursor to style the words "Component Suggestion Tool" as a basic logo and give me five different designs. I chose the one I liked best. The colors used in my logo because the color scheme seen throughout my project.
-  - I spent roughly 1 hour total styling the application.
+  - I told cursor to style the words "Component Suggestion Tool" as a basic logo and give me five different designs. I chose the one I liked best. The colors used in my logo became the color scheme seen throughout my project.
+  - I spent roughly 1.5 hour total styling the application.
 
-- I selected a couple of Visa's components and icons that I wanted to use in my project. I did customize them a little to fit my needs (colors, extra functionality).
+- I selected a couple of Visa's components and icons that I wanted to use in my project. I did customize them a little to fit my needs (colors, added/remove some functionality).
 
-- The rest of the application, development, and testing. Order of developed components below:
+  - AlternateVerticalNavigation
+  - VisaSearchLow
+  - Button
+
+- Completed the rest of the application, development, and testing. Order of features implemented below:
   1. Header - Logo and nav.
-  2. Visa component sidebar and main content - Clicked component in sidebar shows up in main container; used useState to hold which component was clicked and then displayed component in main container.
-  3. Create component card - Card has title, Visa component, code snippet, and action buttons.
-  4. Search bar - functionality, filtering, displaying content in main container; used useState to set value of input; on click of Search button searched for keys in the NovaComponents object that included matching words from the search input. Each key that had matching words got pushed into the display results; duplicates components were accounted for.
-  5. Test and debugging took place through entire process, more testing happened at end.
+  2. Visa Component Sidebar and Main Content - A clicked component in sidebar shows up in main container; used useState to hold which component was clicked and then displayed component in main container.
+  3. Create Ccomponent Card in Main Content - Card has title, Visa component, code snippet, and action buttons.
+  4. Search Bar - functionality, filtering, displaying content in main container; used useState to set value of search input; on click of 'Search' button searched for keys in the NovaComponents object that included matching words from the search input. Each key that had matching words got pushed into the display results; duplicate components were accounted for.
+  5. Testing and debugging took place through entire process.
   6. Create and edit ReadME
   7. Deploy to Netlify
 
@@ -54,19 +58,19 @@
 
 - I tried searching for an API to pull all of the base component data but I could not find one.
 
-- It took a little bit of time to decide how I wanted to structure my data.
+- The time it took to structure the data
 
-- I like for things to look nice and work so it took me longer than the 3 - 4 hours because I wanted to do a good job.
+- I like to be thorough, and for things to look nice, and for the app to work properly, so it took me longer than the recommended 3 - 4 hours; this was challenging because it did cause me stress since I was taking longer.
 
 ## FUTURE FEATURES AND UPDATES:
 
-- I would like to add more component files into the project. Currently the majority of the NovaComponent data is commented out because I wanted to prioritize development and not component file creation.
+- I would like to add more component files into the project so that it's richer in data. Currently, the majority of the NovaComponent data is commented out because I wanted to prioritize development and not component file creation.
 
 - I want to add 508 compliance/accessibility.
 
-- Improve the mobile / responsive design - I did not have enough time to attend to this.
+- I want to improve the mobile / responsive design, as I did not have enough time to fully tend to this.
 
-- Add more icons to bring the app to life.
+- I'd like to add more icons to bring the app to life.
 
 ---
 
