@@ -29,17 +29,15 @@ type DisplayedComponent = {
 
 interface AlternateVerticalNavigationProps {
   displayedComponents: DisplayedComponent[];
-  setDisplayedComponents: React.Dispatch<
-    React.SetStateAction<DisplayedComponent[]>
-  >;
+  setDisplayedComponents: React.Dispatch<React.SetStateAction<DisplayedComponent[]>>;
   novaComponentsArray: (DisplayedComponent & { key: string })[];
+  setSearchInputVal: React.Dispatch<React.SetStateAction<string>>; 
 }
-
 export const AlternateVerticalNavigation = ({
   displayedComponents,
   setDisplayedComponents,
   novaComponentsArray,
-  setSearchInputVal,
+  setSearchInputVal
 }: AlternateVerticalNavigationProps) => {
   const [navExpanded, setNavExpanded] = useState(true);
   const [componentCodeToShow, setComponentCodeToShow] = useState("");

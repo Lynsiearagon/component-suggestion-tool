@@ -15,6 +15,7 @@ interface SearchBarProps {
   >;
   novaComponentsArray: (DisplayedComponent & { key: string })[];
   searchInputVal: string;
+  setSearchInputVal: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const SearchBar = ({
