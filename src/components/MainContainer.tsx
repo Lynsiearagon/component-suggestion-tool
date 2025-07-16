@@ -13,34 +13,34 @@ import {
   VisaMediaRewindTiny,
   VisaMediaFastForwardTiny,
 } from "@visa/nova-icons-react";
-import { Component, useState } from "react";
+import { useState } from "react";
 import NovaComponents from "../data/NovaComponents";
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
 const id = "alternate-vertical-navigation";
 const navRegionAriaLabel = "Alternate vertical navigation";
 
-const novaComponentsArray: {
-  key: string;
+type DisplayedComponent = {
   name: string;
-  component: string;
+  component: React.ComponentType<any>;
   codeSnippet: string;
-}[] = Object.entries(NovaComponents).map(([key, value]) => ({
-  key,
-  name: value.name,
-  component: value.component,
-  codeSnippet: value.codeSnippet,
-}));
+};
 
-export const AlternateVerticalNavigation = () => {
+interface AlternateVerticalNavigationProps {
+  displayedComponents: DisplayedComponent[];
+  setDisplayedComponents: React.Dispatch<React.SetStateAction<DisplayedComponent[]>>;
+  novaComponentsArray: (DisplayedComponent & { key: string })[];
+}
+
+export const AlternateVerticalNavigation = ({
+  displayedComponents,
+  setDisplayedComponents,
+  novaComponentsArray
+}: AlternateVerticalNavigationProps) => {
   const [navExpanded, setNavExpanded] = useState(true);
-  const [displayedComponents, setDisplayedComponents] = useState<
-    { name: string; component: string; codeSnippet: string }[]
-  >([]);
   const [componentCodeToShow, setComponentCodeToShow] = useState("")
 
   const displayComponent = (key: string) => {
-    console.log("WE hit this");
     setDisplayedComponents([NovaComponents[key as keyof typeof NovaComponents]]);
   };
 
@@ -134,10 +134,11 @@ export const AlternateVerticalNavigation = () => {
           </Utility>
         </Nav>
         <div className="mainContent">
-          <div className="flex flex-row justify-between items-center pt-4 pb-12 px-1">
+          <div className="flex flex-row justify-between items-center pt-3 pb-12 px-2">
             <h2 className="text-3xl">Results {displayedComponents.length}</h2>
             <button type="button" className="hover:text-pink-500 hover:underline cursor-pointer" onClick={clearResults}>Clear Results</button>
           </div>
+          <div className="flex flex-col gap-6">
           {displayedComponents.map((component) => (
             <div key={component.name} className="border p-8 bg-white rounded-md shadow-md border border-gray-400 flex flex-col gap-6">
               <div>
@@ -160,6 +161,7 @@ export const AlternateVerticalNavigation = () => {
               </div>}
             </div>
           ))}
+          </div>
         </div>
       </div>
     </div>
