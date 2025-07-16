@@ -1,3 +1,25 @@
+NOTES:
+
+- The longest part of this project was the data portion - this took a couple of hours to format it as needed to use in the app. There are some small changes in the code snippets that I had to make because VS Code kept flagging the template literals in the codeSnippets key.
+- In total, the research in the Design.visa.com site and the data formatting took about 3 hours.
+
+- I tried searching for an API to pull all of the base component data so that I could use, but I could not find one.
+
+- Instead, I had to create the NovaComponents object myself. I used the help of Cursor to do this. I gave cursor the documentation and the object structure that I wanted. It mostly completed the object structure as needed, having a "name", "component", and "codeSnippet" key, but it did copy the codeSnippet incorrectly, and after trying to clarity and write better queries for it to understand the correct code snippets, I had to go through and quality check the object myself.
+
+- I spent roughly 1 hour total styling the application.
+- I used cursor to suggest a color palet. I asked for five choices and the finished product is what I selected.
+
+- The rest of the application, development and testing, went by pretty fast, appx 2 hours.
+
+WHAT I WANT TO DO:
+
+- I know what I went over the four hour limit, as the data took longer to gather, but I would like to add more component files into the project. Currently the majority of components are commented out in the NovaComponents object, as I wanted to prioritize development and not data for the project.
+
+- I want to add 508 compliance/accessibility.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
