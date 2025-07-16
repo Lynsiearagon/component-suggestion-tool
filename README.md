@@ -1,4 +1,10 @@
-NOTES:
+# Component Suggestion Tool
+
+## ABOUT
+
+- Allows users to search for and use Visa components using a search bar or a menu.
+
+## NOTES:
 
 - The longest part of this project was the data portion - this took a couple of hours to format it as needed to use in the app. There are some small changes in the code snippets that I had to make because VS Code kept flagging the template literals in the codeSnippets key.
 - In total, the research in the Design.visa.com site and the data formatting took about 3 hours.
@@ -12,11 +18,13 @@ NOTES:
 
 - The rest of the application, development and testing, went by pretty fast, appx 2 hours.
 
-WHAT I WANT TO DO:
+## WHAT I WANT TO DO:
 
 - I know what I went over the four hour limit, as the data took longer to gather, but I would like to add more component files into the project. Currently the majority of components are commented out in the NovaComponents object, as I wanted to prioritize development and not data for the project.
 
 - I want to add 508 compliance/accessibility.
+
+- Improve the mobile / responsive design - I did not have enough time to full style this.
 
 ---
 
