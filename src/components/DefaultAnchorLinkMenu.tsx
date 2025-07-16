@@ -1,7 +1,12 @@
-import { AnchorLinkMenu, AnchorLinkMenuHeader, Link, Typography } from '@visa/nova-react';
+import {
+  AnchorLinkMenu,
+  AnchorLinkMenuHeader,
+  Link,
+  Typography,
+} from "@visa/nova-react";
 
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
-const id = 'default-anchor-link-menu';
+const id = "default-anchor-link-menu";
 
 export const DefaultAnchorLinkMenu = () => {
   return (

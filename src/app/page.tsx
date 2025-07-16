@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { SearchBar } from "@/components/SearchBar";
 import { AlternateVerticalNavigation } from "@/components/MainContainer";
 import NovaComponents from "../data/NovaComponents";
@@ -16,17 +16,28 @@ const novaComponentsArray: {
   codeSnippet: value.codeSnippet,
 }));
 
-
 export default function Home() {
-  const [displayedComponents, setDisplayedComponents] = useState<
-    { name: string; component: React.ComponentType<any>; codeSnippet: string }[]
-  >(novaComponentsArray);
+  const [displayedComponents, setDisplayedComponents] =
+    useState<
+      {
+        name: string;
+        component: React.ComponentType<any>;
+        codeSnippet: string;
+      }[]
+    >(novaComponentsArray);
 
   return (
     <div className="my-12 mx-4 md:mx-8 lg:mx-16 xl:mx-24">
-      <SearchBar setDisplayedComponents={setDisplayedComponents} novaComponentsArray={novaComponentsArray} />
+      <SearchBar
+        setDisplayedComponents={setDisplayedComponents}
+        novaComponentsArray={novaComponentsArray}
+      />
       <div className="shadow-lg">
-        <AlternateVerticalNavigation displayedComponents={displayedComponents} setDisplayedComponents={setDisplayedComponents} novaComponentsArray={novaComponentsArray} />
+        <AlternateVerticalNavigation
+          displayedComponents={displayedComponents}
+          setDisplayedComponents={setDisplayedComponents}
+          novaComponentsArray={novaComponentsArray}
+        />
       </div>
     </div>
   );

@@ -28,30 +28,34 @@ type DisplayedComponent = {
 
 interface AlternateVerticalNavigationProps {
   displayedComponents: DisplayedComponent[];
-  setDisplayedComponents: React.Dispatch<React.SetStateAction<DisplayedComponent[]>>;
+  setDisplayedComponents: React.Dispatch<
+    React.SetStateAction<DisplayedComponent[]>
+  >;
   novaComponentsArray: (DisplayedComponent & { key: string })[];
 }
 
 export const AlternateVerticalNavigation = ({
   displayedComponents,
   setDisplayedComponents,
-  novaComponentsArray
+  novaComponentsArray,
 }: AlternateVerticalNavigationProps) => {
   const [navExpanded, setNavExpanded] = useState(true);
-  const [componentCodeToShow, setComponentCodeToShow] = useState("")
+  const [componentCodeToShow, setComponentCodeToShow] = useState("");
 
   const displayComponent = (key: string) => {
-    setDisplayedComponents([NovaComponents[key as keyof typeof NovaComponents]]);
+    setDisplayedComponents([
+      NovaComponents[key as keyof typeof NovaComponents],
+    ]);
   };
 
-  const viewCode = (componentName:string) => {
-    setComponentCodeToShow(componentName)
-  }
+  const viewCode = (componentName: string) => {
+    setComponentCodeToShow(componentName);
+  };
 
-  const copyCode = async (codeSnippet:string) => {
+  const copyCode = async (codeSnippet: string) => {
     try {
       await navigator.clipboard.writeText(codeSnippet);
-      console.log("Copied!")
+      console.log("Copied!");
     } catch (err) {
       console.error("Failed to copy", err);
     }
@@ -60,12 +64,18 @@ export const AlternateVerticalNavigation = ({
   const clearResults = () => {
     setComponentCodeToShow("");
     setDisplayedComponents(novaComponentsArray);
-  }
+  };
 
   return (
     <div className="appContainer font-mono uppercase">
       <div id="layout" className="layoutContainer">
-        <Nav id={id} alternate orientation="vertical" tag="header" className="h-screen overflow-auto">
+        <Nav
+          id={id}
+          alternate
+          orientation="vertical"
+          tag="header"
+          className="h-screen overflow-auto"
+        >
           {navExpanded && (
             <Link alternate skipLink href="#content">
               Skip to content
@@ -136,31 +146,67 @@ export const AlternateVerticalNavigation = ({
         <div className="mainContent">
           <div className="flex flex-row justify-between items-center pt-3 pb-12 px-2">
             <h2 className="text-3xl">Results {displayedComponents.length}</h2>
-            <button type="button" className="hover:text-pink-500 hover:underline cursor-pointer" onClick={clearResults}>Clear Results</button>
+            <button
+              type="button"
+              className="hover:text-pink-500 hover:underline cursor-pointer"
+              onClick={clearResults}
+            >
+              Clear Results
+            </button>
           </div>
           <div className="flex flex-col gap-6">
-          {displayedComponents.map((component) => (
-            <div key={component.name} className="border p-8 bg-white rounded-md shadow-md border border-gray-400 flex flex-col gap-6">
-              <div>
-                <h3 className="pb-4 text-xl">{component.name}</h3>
-                {<component.component />}
-              </div>
-
-              <div className="flex flex-row w-full justify-between">
-                <div className="flex flex-row gap-2">
-                  <Button onClick={() => viewCode(component.name)} className={component.name === componentCodeToShow ? "hidden" : "block hover:bg-pink-500"}>View Code</Button>
-                  <Button onClick={() => setComponentCodeToShow("")} className={component.name === componentCodeToShow ? "block hover:bg-pink-500" : "hidden"}>Hide Code</Button>
+            {displayedComponents.map((component) => (
+              <div
+                key={component.name}
+                className="border p-8 bg-white rounded-md shadow-md border border-gray-400 flex flex-col gap-6"
+              >
+                <div>
+                  <h3 className="pb-4 text-xl">{component.name}</h3>
+                  {<component.component />}
                 </div>
-                {component.name === componentCodeToShow && <Button onClick={() => copyCode(component.codeSnippet)} className=" hover:bg-pink-500">Copy</Button>}
-              </div>
 
-              {component.name === componentCodeToShow && <div className="bg-gray-800  text-white p-8 rounded-lg overflow-auto">
-                <pre className="w-100 max-h-100">
-                  <code className="">{component.codeSnippet}</code>
-                </pre>
-              </div>}
-            </div>
-          ))}
+                <div className="flex flex-row w-full justify-between">
+                  <div className="flex flex-row gap-2">
+                    <Button
+                      onClick={() => viewCode(component.name)}
+                      className={
+                        component.name === componentCodeToShow
+                          ? "hidden"
+                          : "block hover:bg-pink-500"
+                      }
+                    >
+                      View Code
+                    </Button>
+                    <Button
+                      onClick={() => setComponentCodeToShow("")}
+                      className={
+                        component.name === componentCodeToShow
+                          ? "block hover:bg-pink-500"
+                          : "hidden"
+                      }
+                    >
+                      Hide Code
+                    </Button>
+                  </div>
+                  {component.name === componentCodeToShow && (
+                    <Button
+                      onClick={() => copyCode(component.codeSnippet)}
+                      className=" hover:bg-pink-500"
+                    >
+                      Copy
+                    </Button>
+                  )}
+                </div>
+
+                {component.name === componentCodeToShow && (
+                  <div className="bg-gray-800  text-white p-8 rounded-lg overflow-auto">
+                    <pre className="w-100 max-h-100">
+                      <code className="">{component.codeSnippet}</code>
+                    </pre>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
