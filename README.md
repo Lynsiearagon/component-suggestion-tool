@@ -3,28 +3,70 @@
 ## ABOUT
 
 - Allows users to search for and use Visa components using a search bar or a menu.
+- I used NextJs - it is a framework for React and provides a nice developer experience.
+- I used Tailwind to style the app - this provides a very fast and easy way to style components and create responsive designs.
 
 ## NOTES:
 
-- The longest part of this project was the data portion - this took a couple of hours to format it as needed to use in the app. There are some small changes in the code snippets that I had to make because VS Code kept flagging the template literals in the codeSnippets key.
-- In total, the research in the Design.visa.com site and the data formatting took about 3 hours.
+- TOTAL TIME: ~ 7 HOURS
 
-- I tried searching for an API to pull all of the base component data so that I could use, but I could not find one.
+- Research and understanding the design.visa.com site took about 1 hour.
 
-- Instead, I had to create the NovaComponents object myself. I used the help of Cursor to do this. I gave cursor the documentation and the object structure that I wanted. It mostly completed the object structure as needed, having a "name", "component", and "codeSnippet" key, but it did copy the codeSnippet incorrectly, and after trying to clarity and write better queries for it to understand the correct code snippets, I had to go through and quality check the object myself.
+- The longest part of this project was the data portion; this took about 2 hours. You can see the data in src/data/NovaComponents.ts.
 
-- I spent roughly 1 hour total styling the application.
-- I used cursor to suggest a color palet. I asked for five choices and the finished product is what I selected.
+- Styling took roughly 1 hour.
 
-- The rest of the application, development and testing, went by pretty fast, appx 2 hours.
+- Development and testing took roughtly 2 hours.
 
-## WHAT I WANT TO DO:
+- Readme took 45 minutes.
 
-- I know what I went over the four hour limit, as the data took longer to gather, but I would like to add more component files into the project. Currently the majority of components are commented out in the NovaComponents object, as I wanted to prioritize development and not data for the project.
+- Deploying to Netlify took 15 minutes.
+
+## APPROACH
+
+- Research
+
+- Decide on data structures and algo approach
+
+- Structure data:
+
+  - I created a NovaComponents object; I used the help of Cursor to do this. I gave cursor the visa documentation and the object structure that I wanted. Cursor mostly completed the object structure that I needed, having a "name", "component", and "codeSnippet" attributes, but it did not copy the codeSnippet correctly. After trying to clarity and write better queries for Cursor to understand the correct code snippets, I had to go through and quality check/update the object myself (time consuming).
+
+- Create basic design and color scheme:
+
+  - I told cursor to style the words "Component Suggestion Tool" as a basic logo and give me five different designs. I chose the one I liked best. The colors used in my logo because the color scheme seen throughout my project.
+  - I spent roughly 1 hour total styling the application.
+
+- I selected a couple of Visa's components and icons that I wanted to use in my project. I did customize them a little to fit my needs (colors, extra functionality).
+
+- The rest of the application, development, and testing. Order of developed components below:
+  1. Header - Logo and nav.
+  2. Visa component sidebar and main content - Clicked component in sidebar shows up in main container; used useState to hold which component was clicked and then displayed component in main container.
+  3. Create component card - Card has title, Visa component, code snippet, and action buttons.
+  4. Search bar - functionality, filtering, displaying content in main container; used useState to set value of input; on click of Search button searched for keys in the NovaComponents object that included matching words from the search input. Each key that had matching words got pushed into the display results; duplicates components were accounted for.
+  5. Test and debugging took place through entire process, more testing happened at end.
+  6. Create and edit ReadME
+  7. Deploy to Netlify
+
+## CHALLENGES
+
+- There are some small changes in the displayed code snippets that I had to make because VS Code kept flagging the template literals in the codeSnippets key. For time, I had to change `` to ''.
+
+- I tried searching for an API to pull all of the base component data but I could not find one.
+
+- It took a little bit of time to decide how I wanted to structure my data.
+
+- I like for things to look nice and work so it took me longer than the 3 - 4 hours because I wanted to do a good job.
+
+## FUTURE FEATURES AND UPDATES:
+
+- I would like to add more component files into the project. Currently the majority of the NovaComponent data is commented out because I wanted to prioritize development and not component file creation.
 
 - I want to add 508 compliance/accessibility.
 
-- Improve the mobile / responsive design - I did not have enough time to full style this.
+- Improve the mobile / responsive design - I did not have enough time to attend to this.
+
+- Add more icons to bring the app to life.
 
 ---
 
