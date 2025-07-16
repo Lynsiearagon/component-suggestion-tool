@@ -1,7 +1,6 @@
 import NovaComponents from "@/data/NovaComponents";
 import { VisaSearchLow } from "@visa/nova-icons-react";
 import { Button } from "@visa/nova-react";
-import { useState } from "react";
 import type React from "react";
 
 type DisplayedComponent = {
@@ -15,14 +14,15 @@ interface SearchBarProps {
     React.SetStateAction<DisplayedComponent[]>
   >;
   novaComponentsArray: (DisplayedComponent & { key: string })[];
+  searchInputVal: string;
 }
 
 export const SearchBar = ({
   setDisplayedComponents,
   novaComponentsArray,
+  searchInputVal,
+  setSearchInputVal,
 }: SearchBarProps) => {
-  const [searchInputVal, setSearchInputVal] = useState("");
-
   const handleSearchBarInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInputVal(e.target.value);
 
@@ -50,6 +50,8 @@ export const SearchBar = ({
 
     if (possibleComponents.length > 0) {
       setDisplayedComponents(possibleComponents);
+    } else {
+      setDisplayedComponents([]);
     }
   };
 
